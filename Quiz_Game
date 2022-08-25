@@ -1,0 +1,528 @@
+#include <stdio.h>
+#include <conio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+
+void show_record();
+void reset_score();
+void help();
+void edit_score(float, char[]);
+void main()
+{
+    int countr, r, count, i, n;
+    float score;
+    char choice;
+    char playername[20];
+mainhome:
+    clrscr();
+    printf("\n\t\t________________________________________\n\n");
+    printf("\t\t\t        << QUIZ >>\n");
+    printf("\n\t\t****************************************");
+    printf("\n\t\t***************** ABESIT ***************");
+    printf("\n\t\t****************************************");
+    printf("\n\t\t");
+    printf("\n\t\t > Press S to start the QUIZ");
+    printf("\n\t\t > Press V to view the highest score");
+    printf("\n\t\t > Press R to reset score");
+    printf("\n\t\t > press H for help");
+    printf("\n\t\t > press Q to quit");
+    printf("\n\t\t________________________________________\n\n");
+    choice = toupper(getch());
+
+    if (choice == 'V')
+    {
+	clrscr();
+	show_record();
+	clrscr();
+	goto mainhome;
+    }
+
+    else if (choice == 'H')
+    {
+	clrscr();
+	help();
+	getch();
+	clrscr();
+	goto mainhome;
+    }
+
+    else if (choice == 'R')
+    {
+	clrscr();
+	reset_score();
+	getch();
+	goto mainhome;
+    }
+
+    else if (choice == 'Q')
+    {
+	exit(1);
+    }
+
+    else if (choice == 'S')
+    {
+	clrscr();
+	printf("\n\n\n\n\n\n\n\n\n\n\t\t\tRegister your name:");
+	gets(playername);
+
+	clrscr();
+	printf("\n *********** Welcome %s to C Program Quiz *****************", playername);
+	printf("\n\n Here are some tips you might wanna know before playing:");
+	printf("\n ********************************************************************************");
+	printf("\n >> In this quiz you will be asked a total of 20 questions.");
+	printf("\n     Each right answer will be awarded with 10 points!");
+	printf("\n >> You will be given 4 options and you have to press A, B ,C or D for the");
+	printf("\n    right option.");
+	printf("\n >> No negative marking for wrong answers!");
+	printf("\n\n\t!!!!!!!!!!!!! ALL THE BEST !!!!!!!!!!!!!");
+	printf("\n\n\n Press Y  to start the quiz!\n");
+	printf("\n Press any other key to return to the main menu!");
+
+	if (toupper(getch()) == 'Y')
+	{
+	    clrscr();
+	    goto quiz;
+	}
+
+	else
+	{
+	    clrscr();
+	    goto mainhome;
+	}
+
+    quiz:
+	countr = 0;
+	for (i = 1; i <= 20; i++)
+	{
+	    clrscr();
+	    r = i;
+
+	    switch (r)
+	    {
+	    case 1:
+		printf("\n\n1. Who was the first woman Prime Minister of India?");
+		printf("\n\nA.Sonia Gandhi\t\tB.Pratibha Patil\n\nC.Indira Gandhi\t\tD.Sumitra Mahajan");
+		if (toupper(getch()) == 'C')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is C.Indira Gandhi");
+		    getch();
+		    break;
+		}
+
+	    case 2:
+		printf("\n\n\n2. What is the total number of characters in Hindi Alphabet?");
+		printf("\n\nA.52 \t\tB.62\n\nC.45\t\tD.26");
+		if (toupper(getch()) == 'A')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is A.52");
+		    getch();
+		    break;
+		}
+
+	    case 3:
+		printf("\n\n\n3. A DVD is an example of a/an...");
+		printf("\n\nA.Magnetic disk\t\tB.Hard disk\n\nC.Output device\t\tD.Optical disk");
+		if (toupper(getch()) == 'D')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is D.Optical disk");
+		    getch();
+		    break;
+		}
+
+	    case 4:
+		printf("\n\n\n4. Who is he founder of facebook?");
+		printf("\n\nA.Mark zuckerburg\tB.Tesla\n\nC.Steve jobs\t\tD.Bill gates");
+		if (toupper(getch()) == 'A')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is A.Mark zuckerburg");
+		    getch();
+		    break;
+		}
+
+	    case 5:
+		printf("\n\n\n5. Which of he following is not a Search Engine?");
+		printf("\n\nA.Google\tB.FireFox\n\nC.Yahoo\t\tD.Bing");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.FireFox");
+		    getch();
+		    break;
+		}
+
+	    case 6:
+		printf("\n\n\n6. 'OS' computer abbreviation usually means?");
+		printf("\n\nA.Order of Significance\t\tB.Open Software\n\nC.Optical Sensor\t\tD.Operating System");
+		if (toupper(getch()) == 'D')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is D.Operating System");
+		    getch();
+		    break;
+		}
+
+	    case 7:
+		printf("\n\n\n7. which of he following is a read only memory storage device?");
+		printf("\n\nA.Flash drive\t\tB.Hard disk\n\nC.Floppy disk\t\tD.CDROM");
+		if (toupper(getch()) == 'D')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is D.CDROM");
+		    getch();
+		    break;
+		}
+	    case 8:
+		printf("\n\n\n8. The _____ shows all the web sites any pages that you have visited one of recent time.");
+		printf("\n\nA.History \t\tB.Status bar \n\nC.task bar\t\tD.record");
+		if (toupper(getch()) == 'A')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is A.History ");
+		    getch();
+		    break;
+		}
+	    case 9:
+		printf("\n\n\n9. A 32 bit word computer can access ____ bytes at a time. ");
+		printf("\n\nA.32\t\tB.16\n\nC.8\t\tD.4");
+		if (toupper(getch()) == 'C')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is C.8");
+		    getch();
+		    break;
+		}
+	    case 10:
+		printf("\n\n\n10. Who is the founder of pixar animation?");
+		printf("\n\nA.Mark zuckerburg\tB.Tesla\n\nC.Steve jobs\t\tD.Bill gates");
+		if (toupper(getch()) == 'C')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is C.Steve jobs");
+		    getch();
+		    break;
+		}
+	    case 11:
+		printf("\n\n11. The purpose of choke in tube light is ...");
+		printf("\n\nA.To decrease the current\t\tB.To increase the current\n\nC.TO decrease the voltage momentarily\tD.TO increase the voltage momentarily");
+		if (toupper(getch()) == 'D')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is D.TO increase the voltage momentarily");
+		    getch();
+		    break;
+		}
+
+	    case 12:
+		printf("\n\n\n12. Who developed Yahoo?");
+		printf("\n\nA.Dennis Ritchie \t\tB.David Filo & Jerry Yang\n\nC.Vint Cerf & Robert Kahn\tD.Steve Case & Jeff bezos");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.David Filo & Jerry Yang");
+		    getch();
+		    break;
+		}
+
+	    case 13:
+		printf("\n\n\n13. What frequency range is the High Frequency Band?");
+		printf("\n\nA.100 kHz\t\tB.1 GHz\n\nC.30 to 300 MHz\t\tD.3 to 30 MHz");
+		if (toupper(getch()) == 'D')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is D.3 to 30 MHz");
+		    getch();
+		    break;
+		}
+
+	    case 14:
+		printf("\n\n\n14. How many bits in a byte?");
+		printf("\n\nA.4\t\tB.8\n\nC.16\t\tD.32");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.8");
+		    getch();
+		    break;
+		}
+
+	    case 15:
+		printf("\n\n\n15. Computers calculate numbers in what mode?");
+		printf("\n\nA.Decimal\t\tB.Octal\n\nC.Binary\t\tD.None of the above");
+		if (toupper(getch()) == 'C')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is C.Binary");
+		    getch();
+		    break;
+		}
+
+	    case 16:
+		printf("\n\n\n16. Which device can be used to store charge?");
+		printf("\n\nA.Transistor\t\tB.Capacitor\n\nC.Diode\t\t\tD.Resistor");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.Capacitor");
+		    getch();
+		    break;
+		}
+
+	    case 17:
+		printf("\n\n\n17. Modem stands for ... ");
+		printf("\n\nA.Modulator-Demodulator\t\tB.Monetary Devaluation Exchange Mechanism\n\nC.Memory Demagnetization\tD.Monetary Demarkation");
+		if (toupper(getch()) == 'A')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is A.Modulator-Demodulator");
+		    getch();
+		    break;
+		}
+	    case 18:
+		printf("\n\n\n18. What is the difference between the Internet and an intranet?");
+		printf("\n\nA.One is safer than the other\t\tB.One is public, the other is private \n\nC.One can be monitored, the other can't\t\tD.None of the above");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.One is public, the other is private");
+		    getch();
+		    break;
+		}
+	    case 19:
+		printf("\n\n\n19. In a Digital circuit, what is 1 'AND' 1 ? ");
+		printf("\n\nA.0\t\tB.1\n\nC.2\t\tD.4");
+		if (toupper(getch()) == 'B')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is B.1");
+		    getch();
+		    break;
+		}
+	    case 20:
+		printf("\n\n\n20. Which was an early mainframe computer ?");
+		printf("\n\nA.ENIAC\t\tB.UNIK\n\nC.BRAINIA\tD.FUNTRIA");
+		if (toupper(getch()) == 'A')
+		{
+		    printf("\n\nCorrect!!!");
+		    countr++;
+		    getch();
+		    break;
+		}
+		else
+		{
+		    printf("\n\nWrong!!! The correct answer is A.ENIAC");
+		    getch();
+		    goto score;
+		}
+	    }
+	}
+
+    score:
+	clrscr();
+	score = countr * 10;
+	if (score > 0)
+	{
+	    printf("\n\n\t\t**************** CONGRATULATION *****************");
+	    printf("\n\t        Your Score is %.2f", score);
+	    printf("\n\n Quiz by:\n\t Aditya Shakya_019\n\t Aditya Mishra_018\n\t Abhishek Gupta_009\n\n");
+	    goto go;
+	}
+	else
+	{
+	    printf("\n\n\t******** SORRY YOU SCORED 0 ********");
+	    printf("\n\t\t Thanks for your participation");
+	    printf("\n\t\t TRY AGAIN");
+	    goto go;
+	}
+
+    go:
+	puts("Press Enter to go main menu");
+	if (toupper(getchar()) != 'Y')
+	{
+	    edit_score(score, playername);
+	    goto mainhome;
+	}
+    }
+}
+
+void show_record()
+{
+    char name[20];
+    float scr = 0;
+    FILE *f;
+    f = fopen("score.txt", "r");
+    fscanf(f, "%s%f", &name, &scr);
+    clrscr();
+    printf("\n\n\t\t*************************************************************");
+    printf("\n\n\t\t %s has secured the Highest Score %.2f", name, scr);
+    printf("\n\n\t\t*************************************************************");
+    fclose(f);
+    getch();
+}
+
+void reset_score()
+{
+    float sc;
+    char nm[20];
+   FILE *f;
+   f = fopen("score.txt", "w");
+   sc = 0;
+   nm[0] = '\0';
+   clrscr();
+   fprintf(f, "%s\n%.2f", nm, sc);
+   fclose(f);
+}
+
+void help()
+{
+    printf("\n\n                              HELP");
+    printf("\n -------------------------------------------------------------------------");
+    printf("\n ......................... C program Quiz...........");
+    printf("\n >> You will be given 4 options and you have to press A, B ,C or D for the");
+    printf("\n    right option");
+    printf("\n >> You will be asked questions continuously if you keep giving the answers.");
+    printf("\n >> No negative marking for wrong answers");
+
+    printf("\n\n\t*********************BEST OF LUCK*********************************");
+}
+
+void edit_score(float score, char playernm[20])
+{
+    float sc;
+    char nm[20];
+    FILE *f;
+    f = fopen("score.txt", "r");
+    fscanf(f, "%s%f", &nm, &sc);
+    if (score >= sc)
+    {
+	sc = score;
+	fclose(f);
+	f = fopen("score.txt", "w");
+	fprintf(f, "%s\n%.2f", playernm, sc);
+	fclose(f);
+    }
+}
